@@ -1,7 +1,7 @@
 package com.seek.java.challenge.backend.apirest.application.controller.auth;
 
-import com.seek.java.challenge.backend.apirest.application.dto.LoginRequest;
-import com.seek.java.challenge.backend.apirest.application.dto.RegisterRequest;
+import com.seek.java.challenge.backend.apirest.application.dto.request.LoginRequest;
+import com.seek.java.challenge.backend.apirest.application.dto.request.RegisterRequest;
 import com.seek.java.challenge.backend.apirest.infrastructure.persistence.entity.UserEntity;
 import com.seek.java.challenge.backend.apirest.infrastructure.persistence.repository.UserRepository;
 import com.seek.java.challenge.backend.apirest.infrastructure.security.JwtTokenProvider;

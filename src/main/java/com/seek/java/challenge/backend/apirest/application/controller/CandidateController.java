@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,7 +33,10 @@ public class CandidateController {
     @Operation(summary = "Get all candidates")
     public ResponseEntity<List<CandidateDTO>> getAllCandidates() {
         List<CandidateDTO> candidates = candidateService.getAllCandidates();
-        return ResponseEntity.ok(candidates);
+        if (candidates.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(candidates, HttpStatus.OK);
     }
 
     @PostMapping
