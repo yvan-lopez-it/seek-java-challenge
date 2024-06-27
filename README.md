@@ -67,10 +67,10 @@ Una vez que tengas el token JWT, úsalo como encabezado Authorization (Bearer To
    http://localhost:8071 e interactuar con la aplicación localmente.
    
 6.  **Acceder a la Aplicación en la nube**
-    http://heroku.com para interactuar con tu aplicación localmente.
+    https://seekjavachallenge-heroku-c4106d411853.herokuapp.com para interactuar con tu aplicación localmente.
 7. **Acceder a la documentación Swagger**
    - Local http://localhost:8071/swagger-ui/index.html#/
-   - Cloud http://heroku.com/swagger-ui/index.html#/
+   - Cloud https://seekjavachallenge-heroku-c4106d411853.herokuapp.com/swagger-ui/index.html#/
     
 
 ### Notas Adicionales
