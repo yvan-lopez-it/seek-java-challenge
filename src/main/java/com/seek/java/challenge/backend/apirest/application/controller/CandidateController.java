@@ -1,6 +1,7 @@
 package com.seek.java.challenge.backend.apirest.application.controller;
 
 import com.seek.java.challenge.backend.apirest.application.dto.CandidateDTO;
+import com.seek.java.challenge.backend.apirest.domain.exception.ResourceNotFoundException;
 import com.seek.java.challenge.backend.apirest.domain.service.ICandidateService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -42,19 +43,29 @@ public class CandidateController {
     @PostMapping
     @Operation(summary = "Create a new candidate")
     public ResponseEntity<CandidateDTO> createCandidate(@RequestBody CandidateDTO candidateDTO) {
-        return ResponseEntity.ok(candidateService.saveCandidate(candidateDTO));
+        return new ResponseEntity<>(candidateService.saveCandidate(candidateDTO), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
     @Operation(summary = "Get a candidate by ID")
     public ResponseEntity<CandidateDTO> getCandidateById(@PathVariable Long id) {
-        return ResponseEntity.ok(candidateService.getCandidateById(id));
+        try {
+            CandidateDTO candidateFound = candidateService.getCandidateById(id);
+            return new ResponseEntity<>(candidateFound, HttpStatus.FOUND);
+        } catch (ResourceNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @PutMapping("/{id}")
     @Operation(summary = "Update a candidate by ID")
     public ResponseEntity<CandidateDTO> updateCandidate(@PathVariable Long id, @RequestBody CandidateDTO candidateDTO) {
-        return ResponseEntity.ok(candidateService.updateCandidate(id, candidateDTO));
+        try {
+            CandidateDTO candidateUpdated = candidateService.updateCandidate(id, candidateDTO);
+            return new ResponseEntity<>(candidateUpdated, HttpStatus.OK);
+        } catch (ResourceNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @DeleteMapping("/{id}")
