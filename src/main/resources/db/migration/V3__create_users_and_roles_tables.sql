@@ -1,4 +1,4 @@
--- V1__Create_and_populate_users_and_roles.sql
+-- V1__create_users_and_roles_tables.sql
 
 -- Create table for users
 CREATE TABLE users

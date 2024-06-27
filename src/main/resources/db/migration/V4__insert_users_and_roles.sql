@@ -2,8 +2,8 @@
 
 -- Insert users
 INSERT INTO users (username, password, enabled, name, lastname, email)
-VALUES ('admin', '$2a$10$D.fuTL1dmViVstbWlHEnQeMzQZucVscPE9NXth37UPVXggELRZr8e', 1, 'Juan', 'Vargas', 'juan.vargas@mail.com'),
-       ('user', '$2a$10$X9SGazzekxK5VIwz4GefWOHivnPeSL/HXjcnKeEeFMz5l61vyV4Ha', 1, 'Benito', 'Palotes', 'benito.palotes@mail.com');
+VALUES ('admin', '$2a$10$BprnmDXCTW5UTUVwojO/K.suNvUqMTI6udkKVqknX6IFa2iVHyNxe', 1, 'Yvan', 'Lopez', 'yvan.lopez@gmail.com'),
+       ('user', '$2a$10$BprnmDXCTW5UTUVwojO/K.suNvUqMTI6udkKVqknX6IFa2iVHyNxe', 1, 'Benito', 'Ramos', 'benito.ramos@mail.com');
 
 -- Insert roles
 INSERT INTO roles (name)
